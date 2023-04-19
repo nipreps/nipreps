@@ -27,8 +27,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -50,22 +48,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
-        install: [repo]
-        include:
-          - python-version: "3.11"
-            install: sdist
-          - python-version: "3.11"
-            install: wheel
-          - python-version: "3.11"
-            install: editable
+        python-version: ["3"]
+        install: ["repo", "editable", "sdist", "wheel"]
     env:
       INSTALL_TYPE: ${{ matrix.install }}
     steps:
     - uses: actions/checkout@v3
       if: matrix.install == 'repo' || matrix.install == 'editable'
-      with:
-        fetch-depth: 0
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
       with:
@@ -90,6 +79,8 @@ jobs:
         echo "ARCHIVE=$ARCHIVE" | tee -a $GITHUB_ENV
     - name: Install package
       run: python -m pip install $ARCHIVE
+    - name: Test import
+      run: python -c "import nipreps; print(nipreps)"
 
   publish:
     runs-on: ubuntu-latest

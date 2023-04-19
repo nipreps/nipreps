@@ -13,3 +13,4 @@ classifiers = ["License :: OSI Approved :: Apache Software License"]
 
 [project.urls]
 Home = "https://nipreps.org"
+"Source Code" = "https://github.com/nipreps/nipreps"

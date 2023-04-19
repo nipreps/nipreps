@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nipreps"
+description = "NiPreps official module"
+readme = "README.md"
+license = {file = "LICENSE"}
+maintainers = [
+    {name = "Nipreps developers", email = "nipreps@gmail.com"},
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.8"
+dependencies = [
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/nipreps/nipreps"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "nipreps/_version.py"

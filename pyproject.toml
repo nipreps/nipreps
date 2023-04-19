@@ -1,36 +1,15 @@
 [build-system]
-requires = ["hatchling", "hatch-vcs"]
-build-backend = "hatchling.build"
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
 
 [project]
 name = "nipreps"
-description = "NiPreps official module"
+version = "1.0"
+description = "Namespace package for nipreps utilities"
 readme = "README.md"
+authors = [{name = "The Nipreps developers", email = "nipreps@gmail.com"}]
 license = {file = "LICENSE"}
-maintainers = [
-    {name = "Nipreps developers", email = "nipreps@gmail.com"},
-]
-classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: Apache Software License",
-    "Operating System :: MacOS :: MacOS X",
-    "Operating System :: POSIX :: Linux",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-]
-requires-python = ">=3.8"
-dependencies = [
-]
-dynamic = ["version"]
+classifiers = ["License :: OSI Approved :: Apache Software License"]
 
 [project.urls]
-Homepage = "https://github.com/nipreps/nipreps"
-
-[tool.hatch.version]
-source = "vcs"
-
-[tool.hatch.build.hooks.vcs]
-version-file = "nipreps/_version.py"
+Home = "https://nipreps.org"
